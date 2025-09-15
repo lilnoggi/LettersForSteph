@@ -118,12 +118,17 @@
 <p id="choose-text">Please choose a letter to open!</p>
 
 <div id="buttons">
-  <button class="button" onclick="openLetter('receives')">💌 Open when you first receive this</button>
-  <button class="button" onclick="openLetter('sad')">🌧 Open when you're feeling sad</button>
-  <button class="button" onclick="openLetter('miss')">❤️ Open when you miss me</button>
-  <button class="button" onclick="openLetter('birthday')">🎂 Open when IT'S YOUR BIRTHDAY!</button>
-  <button class="button" onclick="openLetter('six-month')">🥂 Open on October 1st</button>
-  <button class="button" onclick="openLetter('one-year')">⌛ Open on April 1st 2025</button>
+  <button class="button" onclick="openLetter('receives')">💌 Read me when you first receive this</button>
+  <button class="button" onclick="openLetter('sad')">🌧 Read me when you're feeling sad</button>
+  <button class="button" onclick="openLetter('miss')">❤️ Read me when you miss me</button>
+  <button class="button" onclick="openLetter('birthday')">🎂 Read me when IT'S YOUR BIRTHDAY!</button>
+  <button class="button" onclick="openLetter('six-month')">🥂 Read me on October 1st</button>
+  <button class="button" onclick="openLetter('one-year')">⌛ Read me on April 1st 2025</button>
+  <button class="button" onclick="openLetter('angry')">🧨 Read me when you're mad at me</button>
+  <button class="button" onclick="openLetter('good-news')">🏆 Read me when you've got good news!</button>
+  <button class="button" onclick="openLetter('bad-news')">📴 Read me when you've got bad news</button>
+  <button class="button" onclick="openLetter('graduate')">🎓 Read me when you graduate!</button>
+  <button class="button" onclick="openLetter('encouragement')">🎇 Read me when you need some encouragement</button>
 </div>
 
 <!-- Letters -->
@@ -193,6 +198,72 @@
   <h2>A whole year?!</h2>
   <p>
     Baby... not yet :(
+  </p>
+  <button class="back-button" onclick="goBack()">⬅ Back</button>
+</div>
+
+<div id="angry" class="letter">
+  <h2>I hope you never have to read this one :(</h2>
+  <p>
+    But if you do, please know I am truely sorry.
+    I never want to hurt you or make you feel bad.
+    But if I ever did I hope you can forgive me.
+    I love you so so much, don't forget that and I want to work it out with you no matter what.
+    I am so lucky to have you in my life and I never want to lose you.
+    You are my world.
+    My universe.
+    My everything.
+    I love you baby.
+  </p>
+  <button class="back-button" onclick="goBack()">⬅ Back</button>
+</div>
+
+<div id="good-news" class="letter">
+  <h2>I'M EXCITED FOR YOU BABY!</h2>
+  <p>
+    I'm so happy for you baby!
+    I'm so glad you got some good news!
+    I can't wait to celebrate with you when we next see each other!
+    I love you so much and I am so so proud of you!
+    Keep being amazing baby!
+    Love you always,
+    Your baby xoxo
+  </p>
+  <button class="back-button" onclick="goBack()">⬅ Back</button>
+</div>
+
+<div id="bad-news" class="letter">
+  <h2>Owh my baby :((</h2>
+  <p>
+    I'm sorry to hear that things didn't work out this time baby.
+    But don't let this get you down! I know you'll come back stronger than ever!
+    A wise turtle (or tortoise) once said "Yesterday is history, tomorrow is a mystery, 
+    but today is a gift. That is why it is called the present."
+    So keep your head high up my love!
+    And I hope tomorrow brings you a better day!
+    I love you so much baby!
+  </p>
+  <button class="back-button" onclick="goBack()">⬅ Back</button>
+</div>
+
+<div id="graduate" class="letter">
+  <h2>HOLD UP BABY</h2>
+  <p>
+    It'll come faster than you think.
+  </p>
+  <button class="back-button" onclick="goBack()">⬅ Back</button>
+</div>
+
+<div id="encouragement" class="letter">
+  <h2>Oh baby</h2>
+  <p>
+    I want to remind you of how amazing you are!
+    You are so smart, talented, and capable of achieving anything you set your mind to!
+    I believe in you and I know you can do great things!
+    Whenever you feel down or discouraged, just remember that I am here for you and I will always support you!
+    You are my sunshine and you light up my world!
+    I love you so much baby!
+    You got this pookie! Keep doing you!
   </p>
   <button class="back-button" onclick="goBack()">⬅ Back</button>
 </div>
