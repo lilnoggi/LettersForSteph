@@ -10,6 +10,22 @@
                 text-align: center;
                 padding: 50px;
             }
+                
+            .button {
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 8px;
+                border: none;
+                background: hotpink;
+                color: white;
+                cursor: pointer;
+                margin: 5px;
+                transition: background 0.3s ease;
+            }
+            button:hover {
+                background: deeppink;
+            }
+            
             .letter {
                 display: none;
                 margin-top: 20%;
@@ -20,29 +36,45 @@
                 max-width: 400px;
                 margin-left: auto;
                 margin-right: auto;
+                opacity: 0;
+                transform: scale(0.8);
+                animation: openLetter 0.5s forwards;
             }
-            .button {
-                padding: 10px 20px;
-                font-size: 16px;
+
+            /* Animation for letter opening */
+            @keyframes openLetter {
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            /* Back button inside the letter*/
+            .back-button {
+                margin-top: 20px;
+                padding: 8px 16px;
+                font-size: 14px;
                 border-radius: 8px;
                 border: none;
-                background: hotpink;
+                background: purple;
                 color: white;
                 cursor: pointer;
-                margin: 5px;
             }
-            button:hover {
-                background: deeppink;
+            .back-button:hover {
+                background: indigo;
             }
+
         </style>
     </head>
     <body>
         <h1>Hello Steph</h1>
-        <p>Choose a letter to open!</p>
-        
+        <p id="choose-text">Choose a letter to open!</p>
+      
+        <div id="buttons">
         <button onclick="openLetter('receives')">Open when you first recieve this</button>
         <button onclick="openLetter('sad')">Open when you're feeling sad</button>
         <button onclick="openLetter('miss')">Open when you miss me</button>
+        </div>
 
         <!-- Letters-->
         <div id="receives" class="letter">
@@ -53,6 +85,7 @@
                 I hope it brings a smile to your face and reminds you how much I care about you.
                 Remember, no matter where we are, I'm always thinking of you.
             </p>
+            <button class="back-button" onclick="goBack()">Back</button>
         </div>
 
         <div id="sad" class="letter">
@@ -63,6 +96,7 @@
                 You are strong, beautiful, and capable of overcoming anything that comes your way.
                 Take a deep breath, and know that brighter days are ahead. I love you!
             </p>
+            <button class="back-button" onclick="goBack()">Back</button>
             </div>
 
         <div id="miss" class="letter">
@@ -73,14 +107,31 @@
                 Every moment apart is a moment closer to when we can be together again.
                 Until then, keep me in your heart as I keep you in mine. I love you more than words can say!
             </p>
+            <button class="back-button" onclick="goBack()">Back</button>
         </div>
 
         <script>
             function openLetter(id) {
+                // Hide all letters + text
+                document.getElementById('buttons').style.display = 'none';
+                document.getElementById('choose-text').style.display = 'none';
+
                 // Hide all letters
                 document.querySelectorAll('.letter').forEach(el => el.style.display = 'none');
-                // Show the chosen one
-                document.getElementById(id).style.display = 'block';
+
+                // Show chosen one with animation
+                const letter = document.getElementById(id);
+                letter.style.display = 'block';
+                letter.style.animation = 'openLetter 0.5s forwards';
+            }
+
+            function goBack() {
+                // Hide all letters
+                document.querySelectorAll('.letter').forEach(el => el.style.display = 'none');
+
+                // Show buttons + text again
+                document.getElementById('buttons').style.display = 'block';
+                document.getElementById('choose-text').style.display = 'block';
             }
         </script>
     </body>
