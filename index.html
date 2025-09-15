@@ -41,19 +41,32 @@
     position: relative;
   }
 
+  #buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 columns on larger screens, 1 column on smaller */
+  justify-items: center;  /* center buttons in each grid cell */
+  gap: 12px 20px;         /* vertical and horizontal gaps */
+  max-width: 600px;       /* optional: keeps the grid from getting too wide */
+  margin: 0 auto;         /* center the grid horizontally */
+}
+
   .button {
-    padding: 12px 24px;
+    padding: 14px 20px;
     font-size: 16px;
     border-radius: 30px;
     border: none;
     background: linear-gradient(135deg, #a4508b, #5f0a87);
     color: white;
     cursor: pointer;
-    margin: 8px;
     transition: transform 0.2s, box-shadow 0.3s;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     z-index: 1;
     position: relative;
+
+    width: 100%; /* make buttons take full width of grid cell */
+    max-width: 280px; /* optional: limit max width */
+    text-align: center; /* center text */
+    white-space: normal; /* allow text to wrap */
   }
   .button:hover {
     transform: translateY(-3px);
