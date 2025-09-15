@@ -5,8 +5,8 @@
         <title>Love Letters For Steph</title>
         <style>
             body {
-                font-family: Arial, sans-serif;
-                background: purple;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #a4508b, #5f0a87);
                 text-align: center;
                 margin: 0;
                 height: 100vh;
@@ -14,44 +14,60 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                color: white;
             }
 
             h1 {
                 margin-bottom: 10px;
                 color: black;
+                text-shadow: 2px 2px 6px rgba(0,0,0,0.3,);
             }
 
             #choose-text {
                 color: black;
                 margin-bottom: 20px;
+                font-size: 1.2rem;
             }
                 
             .button {
-                padding: 10px 20px;
+                padding: 12px 24px;
                 font-size: 16px;
-                border-radius: 8px;
+                border-radius: 25px;
                 border: none;
-                background: hotpink;
+                background: linear-gradient(135deg, hotpink, deeppink);
                 color: white;
                 cursor: pointer;
-                margin: 5px;
-                transition: background 0.3s ease;
+                margin: 8px;
+                transition: transform 0.2s, box-shadow 0.3s;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             }
             button:hover {
-                background: deeppink;
+                transform: translateY(-3px);
+                box-shadow: 0 6px 12px rgba(0,0,0,0.3,);
             }
             
             .letter {
                 display: none;
-                padding: 20px;
-                border: 2px solid white;
+                padding: 25px;
+                border: none;
                 background: white;
-                border-radius: 10px;
-                max-width: 400px;
+                border-radius: 15px;
+                max-width: 450px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+                color: #333;
+                text-align: left;
                 opacity: 0;
                 transform: scaleY(0);
                 transform-origin: top center;
                 animation: unfold 0.6s forwards ease-out;
+            }
+            .letter h2 {
+                margin-top: 0;
+                color: #a4508b;
+            }
+            .letter p {
+                line-height: 1.6;
+                font-size: 1rem;
             }
 
             /* Animation for letter opening */
@@ -73,16 +89,19 @@
             /* Back button inside the letter*/
             .back-button {
                 margin-top: 20px;
-                padding: 8px 16px;
+                padding: 10px 20px;
                 font-size: 14px;
-                border-radius: 8px;
+                border-radius: 25px;
                 border: none;
-                background: purple;
+                background: linear-gradient(135deg, #5f0a87, #a4508b);
                 color: white;
                 cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.3s;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             }
             .back-button:hover {
-                background: indigo;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 12px rgba(0,0,0,0.3);
             }
 
         </style>
