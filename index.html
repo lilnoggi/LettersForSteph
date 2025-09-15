@@ -1,178 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Love Letters For Steph</title>
-        <style>
-            body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background: linear-gradient(135deg, #a4508b, #5f0a87);
-                text-align: center;
-                margin: 0;
-                height: 100vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                color: white;
-            }
+<head>
+<meta charset="UTF-8">
+<title>Love Letters For Steph</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #a4508b, #5f0a87);
+    background-repeat: repeat;
+    text-align: center;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
 
-            h1 {
-                margin-bottom: 10px;
-                color: black;
-                text-shadow: 2px 2px 6px rgba(0,0,0,0.3,);
-            }
+  h1 {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    color: #fff;
+  }
 
-            #choose-text {
-                color: black;
-                margin-bottom: 20px;
-                font-size: 1.2rem;
-            }
-                
-            .button {
-                padding: 12px 24px;
-                font-size: 16px;
-                border-radius: 25px;
-                border: none;
-                background: linear-gradient(135deg, hotpink, deeppink);
-                color: white;
-                cursor: pointer;
-                margin: 8px;
-                transition: transform 0.2s, box-shadow 0.3s;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            }
-            button:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 6px 12px rgba(0,0,0,0.3,);
-            }
-            
-            .letter {
-                display: none;
-                padding: 25px;
-                border: none;
-                background: white;
-                border-radius: 15px;
-                max-width: 450px;
-                box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-                color: #333;
-                text-align: left;
-                opacity: 0;
-                transform: scaleY(0);
-                transform-origin: top center;
-                animation: unfold 0.6s forwards ease-out;
-            }
-            .letter h2 {
-                margin-top: 0;
-                color: #a4508b;
-            }
-            .letter p {
-                line-height: 1.6;
-                font-size: 1rem;
-            }
+  #choose-text {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
 
-            /* Animation for letter opening */
-            @keyframes unfold {
-                0% {
-                    opacity: 0;
-                    transform: scaleY(0);
-                }
-                60% {
-                    opacity: 1;
-                    transform: scaleY(1.1);
-                }
-                100% {
-                    opacity: 1;
-                    transform: scaleY(1);
-                }
-            }
+  .button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(135deg, hotpink, deeppink);
+    color: white;
+    cursor: pointer;
+    margin: 8px;
+    transition: transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  .button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+  }
 
-            /* Back button inside the letter*/
-            .back-button {
-                margin-top: 20px;
-                padding: 10px 20px;
-                font-size: 14px;
-                border-radius: 25px;
-                border: none;
-                background: linear-gradient(135deg, #5f0a87, #a4508b);
-                color: white;
-                cursor: pointer;
-                transition: transform 0.2s, box-shadow 0.3s;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            }
-            .back-button:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-            }
+  .letter {
+    display: none;
+    padding: 30px;
+    border: none;
+    background: #fff0f5;
+    border-radius: 20px;
+    max-width: 450px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    color: #333;
+    text-align: left;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top center;
+    animation: unfold 0.6s forwards ease-out;
+  }
+  .letter h2 {
+    margin-top: 0;
+    color: #a4508b;
+    font-family: 'Georgia', serif;
+  }
 
-        </style>
-    </head>
-    <body>
-        <h1>Hello Steph</h1>
-        <p id="choose-text">Choose a letter to open!</p>
-      
-        <div id="buttons">
-        <button onclick="openLetter('receives')">Open when you first recieve this</button>
-        <button onclick="openLetter('sad')">Open when you're feeling sad</button>
-        <button onclick="openLetter('miss')">Open when you miss me</button>
-        </div>
+  @keyframes unfold {
+    0% { opacity: 0; transform: scaleY(0); }
+    60% { opacity: 1; transform: scaleY(1.05); }
+    100% { opacity: 1; transform: scaleY(1); }
+  }
 
-        <!-- Letters-->
-        <div id="receives" class="letter">
-            <h2>My first little letter to you</h2>
-            <p>
-                Steph, if you're reading this, it means you've just received this little surprise from me!
-                I made this so you can have a little piece of me with you whenever you need it.
-                I hope it brings a smile to your face and reminds you how much I care about you.
-                Remember, no matter where we are, I'm always thinking of you.
-            </p>
-            <button class="back-button" onclick="goBack()">Back</button>
-        </div>
+  .back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(135deg, #5f0a87, #a4508b);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  .back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+  }
+</style>
+</head>
+<body>
 
-        <div id="sad" class="letter">
-            <h2>When you're feeling sad</h2>
-            <p>
-                Hey Steph, I know life can be tough sometimes, and it's okay to feel sad.
-                Just remember that you're not alone. I'm here for you, and I believe in you.
-                You are strong, beautiful, and capable of overcoming anything that comes your way.
-                Take a deep breath, and know that brighter days are ahead. I love you!
-            </p>
-            <button class="back-button" onclick="goBack()">Back</button>
-            </div>
+<h1>Hello Steph</h1>
+<p id="choose-text">Choose a letter to open!</p>
 
-        <div id="miss" class="letter">
-            <h2>When you miss me</h2>
-            <p>
-                Steph, I know there are times when you miss me, and I miss you too.
-                But remember, distance is just a test of how far love can travel.
-                Every moment apart is a moment closer to when we can be together again.
-                Until then, keep me in your heart as I keep you in mine. I love you more than words can say!
-            </p>
-            <button class="back-button" onclick="goBack()">Back</button>
-        </div>
+<div id="buttons">
+  <button class="button" onclick="openLetter('receives')">💌 Open when you first receive this</button>
+  <button class="button" onclick="openLetter('sad')">🌧 Open when you're feeling sad</button>
+  <button class="button" onclick="openLetter('miss')">❤️ Open when you miss me</button>
+</div>
 
-        <script>
-            function openLetter(id) {
-                // Hide all letters + text
-                document.getElementById('buttons').style.display = 'none';
-                document.getElementById('choose-text').style.display = 'none';
+<div id="receives" class="letter">
+  <h2>My first little letter to you</h2>
+  <p>
+    Steph, if you're reading this, it means you've just received this little surprise from me!
+    I made this so you can have a little piece of me with you whenever you need it.
+    I hope it brings a smile to your face and reminds you how much I care about you.
+    Remember, no matter where we are, I'm always thinking of you.
+  </p>
+  <button class="back-button" onclick="goBack()">⬅ Back</button>
+</div>
 
-                // Hide all letters
-                document.querySelectorAll('.letter').forEach(el => el.style.display = 'none');
+<div id="sad" class="letter">
+  <h2>When you're feeling sad</h2>
+  <p>
+    Hey Steph, I know life can be tough sometimes, and it's okay to feel sad.
+    Just remember that you're not alone. I'm here for you, and I believe in you.
+    You are strong, beautiful, and capable of overcoming anything that comes your way.
+    Take a deep breath, and know that brighter days are ahead. I love you!
+  </p>
+  <button class="back-button" onclick="goBack()">⬅ Back</button>
+</div>
 
-                // Show chosen one with animation
-                const letter = document.getElementById(id);
-                letter.style.display = 'block';
-                letter.style.animation = 'unfold 0.6s forwards ease-out';
-            }
+<div id="miss" class="letter">
+  <h2>When you miss me</h2>
+  <p>
+    Steph, I know there are times when you miss me, and I miss you too.
+    But remember, distance is just a test of how far love can travel.
+    Every moment apart is a moment closer to when we can be together again.
+    Until then, keep me in your heart as I keep you in mine. I love you more than words can say!
+  </p>
+  <button class="back-button" onclick="goBack()">⬅ Back</button>
+</div>
 
-            function goBack() {
-                // Hide all letters
-                document.querySelectorAll('.letter').forEach(el => el.style.display = 'none');
+<script>
+  function openLetter(id) {
+    document.getElementById('buttons').style.display = 'none';
+    document.getElementById('choose-text').style.display = 'none';
+    document.querySelectorAll('.letter').forEach(el => el.style.display = 'none');
+    const letter = document.getElementById(id);
+    letter.style.display = 'block';
+    letter.style.animation = 'unfold 0.6s forwards ease-out';
+  }
 
-                // Show buttons + text again
-                document.getElementById('buttons').style.display = 'block';
-                document.getElementById('choose-text').style.display = 'block';
-            }
-        </script>
-    </body>
+  function goBack() {
+    document.querySelectorAll('.letter').forEach(el => el.style.display = 'none');
+    document.getElementById('buttons').style.display = 'block';
+    document.getElementById('choose-text').style.display = 'block';
+  }
+</script>
+
+</body>
 </html>
