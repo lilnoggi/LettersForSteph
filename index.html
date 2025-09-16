@@ -348,7 +348,7 @@
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  // --- STARS AND HEARTS LOGIC (from your stars.js) ---
+  // --- STARS AND HEARTS LOGIC (from stars.js) ---
   const stars = [];
   const hearts = [];
   const messages = ["I love you!", "You are my universe!", "You are my star!"];
@@ -522,7 +522,7 @@ viewButton.onclick = function() {
         letterDiv.style.marginBottom = '10px';
         letterDiv.style.color = '#333';
         letterDiv.innerHTML = `
-            <h4 style="margin-top: 0; color: #a4508b; font-size: 1.1rem;">Letter from ${letter.date}</h4>
+            <h4 style="margin-top: 0; color: #a4508b; font-size: 1.1rem;">Letter from Steph on ${letter.date}</h4>
             <p>${letter.content}</p>
         `;
         savedLettersContainer.appendChild(letterDiv);
