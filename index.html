@@ -8,8 +8,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: black; /* black background for stars */
     margin: 0;
-    height: 100vh;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,6 +97,8 @@
     position: absolute;
     top: 35%;
     transform: translate(-50%, -50%) scaleY(0);
+    max-height: 80vh;
+    overflow-y: auto;
   }
   .letter h2 {
     margin-top: 0;
@@ -151,6 +151,7 @@
   <button class="button" onclick="openLetter('encouragement')">🎇 Read me when you need some encouragement</button>
   <button class="button" onclick="openLetter('spotify')">🎵 Open me whenever you want!</button>
   <button class="button" onclick="openLetter('countdown')">⏳ Until we meet again</button>
+  <button class="button" onclick="openLetter('stephs-letters')">📝 Write me a letter!</button>
   <button class="button" onclick="openLetter('updates')">updates</button>
 </div>
 
@@ -306,6 +307,25 @@
   <button class="back-button" onclick="goBack()">⬅ Back</button>
 </div>
 
+<!-- Steph's Letters -->
+<div id="stephs-letters" class="letter">
+  <h2>Write me a letter!</h2>
+  <p>
+    Steph! I made a safe space for you to write how you're feeling whenever you want!
+    You can write anything you want, and save it to look back on later!
+    Don't worry, only you can see what you write here, I can't see it!
+    I hope this makes you feel a little closer to me when we're apart.
+    I love you so much baby!
+  </p>
+  <textarea id="letter-input" placeholder="Type your letter here..." rows="6" style="width: 100%; border-radius: 10px; padding: 10px; font-size: 1rem; background: rgba(255, 255, 255, 0.8); resize: vertical;"></textarea>
+  <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+    <button id="save-button" class="back-button" style="background: linear-gradient(135deg, #5f0a87, #a4508b);">💾 Save Letter</button>
+    <button id="view-button" class="back-button" style="background: linear-gradient(135deg, #a4508b, #5f0a87);">📂 View Saved Letters</button>
+  </div>
+  <div id="saved-letters-container" style="margin-top: 20px;"></div>
+  <button class="back-button" onclick="goBack()" style="margin-top: 20px;">⬅ Back</button>
+</div>
+
 <!-- UPDATES-->
 <div id="updates" class="letter">
   <h2>Updates V1</h2>
@@ -317,6 +337,7 @@
     I love you
     16/09/2025 - Added Spotify playlist
     16/09/2025 - Added countdown timer
+    16/09/2025 - Added Steph's letters section
   </p>
   <button class="back-button" onclick="goBack()">⬅ Back</button>
 </div>
@@ -459,6 +480,54 @@ function goBack(){
     function showCountdown() {
       openLetter('countdown');
     }
+
+// --- STEPH'S LETTERS LOGIC ---
+// Get references to elements
+const letterInput = document.getElementById('letter-input');
+const saveButton = document.getElementById('save-button');
+const viewButton = document.getElementById('view-button');
+const savedLettersContainer = document.getElementById('saved-letters-container');
+
+// Function to save the letter
+saveButton.onclick = function() {
+    const letter = letterInput.value;
+    if (letter.trim() === '') {
+        alert('The letter is empty!');
+        return;
+    }
+
+    const letters = JSON.parse(localStorage.getItem('stephsLetters')) || [];
+    const date = new Date().toLocaleDateString();
+    letters.push({ date: date, content: letter });
+    localStorage.setItem('stephsLetters', JSON.stringify(letters));
+    alert('Letter saved successfully!');
+    letterInput.value = ''; // Clear the input after saving
+};
+
+// Function to view all saved letters
+viewButton.onclick = function() {
+    const letters = JSON.parse(localStorage.getItem('stephsLetters')) || [];
+    savedLettersContainer.innerHTML = ''; // Clear the container first
+
+    if (letters.length === 0) {
+        savedLettersContainer.innerHTML = '<p style="color: #333; text-align: center;">No letters saved yet!</p>';
+        return;
+    }
+
+    letters.forEach(letter => {
+        const letterDiv = document.createElement('div');
+        letterDiv.style.background = 'rgba(255, 240, 245, 0.8)';
+        letterDiv.style.padding = '15px';
+        letterDiv.style.borderRadius = '10px';
+        letterDiv.style.marginBottom = '10px';
+        letterDiv.style.color = '#333';
+        letterDiv.innerHTML = `
+            <h4 style="margin-top: 0; color: #a4508b; font-size: 1.1rem;">Letter from ${letter.date}</h4>
+            <p>${letter.content}</p>
+        `;
+        savedLettersContainer.appendChild(letterDiv);
+    });
+};
 </script>
 </body>
 </html>
