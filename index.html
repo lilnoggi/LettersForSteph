@@ -8,8 +8,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: black; /* black background for stars */
     margin: 0;
-    height: 100vh;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,6 +97,8 @@
     position: absolute;
     top: 35%;
     transform: translate(-50%, -50%) scaleY(0);
+    max-height: 80vh;
+    overflow-y: auto;
   }
   .letter h2 {
     margin-top: 0;
