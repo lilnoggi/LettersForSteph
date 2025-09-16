@@ -150,6 +150,7 @@
   <button class="button" onclick="openLetter('graduate')">🎓 Read me when you graduate!</button>
   <button class="button" onclick="openLetter('encouragement')">🎇 Read me when you need some encouragement</button>
   <button class="button" onclick="openLetter('spotify')">🎵 Open me whenever you want!</button>
+  <button class="button" onclick="openLetter('countdown')">⏳ Until we meet again</button>
   <button class="button" onclick="openLetter('updates')">updates</button>
 </div>
 
@@ -299,6 +300,13 @@
   <button class="back-button" onclick="goBack()">⬅ Back</button>
 </div>
 
+<div id="countdown" class="letter">
+  <h2>Not long now!</h2>
+  <p id="countdown-timer" style="text-align: center; font-size: 2em;"></p>
+  <button class="back-button" onclick="goBack()">⬅ Back</button>
+</div>
+
+<!-- UPDATES-->
 <div id="updates" class="letter">
   <h2>Updates V1</h2>
   <p>
@@ -308,6 +316,7 @@
     I love you so so much Steph, I wish you knew how much you mean to me.
     I love you
     16/09/2025 - Added Spotify playlist
+    16/09/2025 - Added countdown timer
   </p>
   <button class="back-button" onclick="goBack()">⬅ Back</button>
 </div>
@@ -418,6 +427,38 @@ function goBack(){
       canvas.width=window.innerWidth;
       canvas.height=window.innerHeight;
   });
+
+  // --- COUNTDOWN LOGIC ---
+  // Set date to count down to
+  const countDownDate = new Date("September 29, 2025 00:00:00").getTime();
+
+  // Update countdown every second
+  const x= setInterval(function() {
+    // Get today's date and time
+    const now = new Date().getTime();
+
+    const distance = countDownDate - now;
+
+    // Time calculations
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display result
+    document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+    // If countdown is over
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("countdown-timer").innerHTML = "I GET TO SEE MY BABY TODAY!!!";
+    }
+    }, 1000);
+
+    // Call openLetter()
+    function showCountdown() {
+      openLetter('countdown');
+    }
 </script>
 </body>
 </html>
